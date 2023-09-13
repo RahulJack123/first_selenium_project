@@ -3,10 +3,10 @@ from selenium.webdriver.common.by import By
 
 
 class Login:
-    textbox_username_id = "Email"
-    textbox_password_id = "Password"
-    button_login_xpath = "//button[@type='submit']"
-    link_logout_linktext = "Logout"
+    textbox_username_xpath = '//input[@id="Email" and @name="Email"]'
+    textbox_password_xpath = '//input[@value="admin" and @name="Password"]'
+    button_login_xpath = '//button[@type="submit"]'
+    link_logout_linktext = '//*[@id="navbarText"]/ul/li[3]/a'
 
 
     def __init__(self,driver):
@@ -14,13 +14,13 @@ class Login:
 
 
     def setUserName(self,username):
-        self.driver.find_element(By.ID,self.textbox_username_id).clear()
-        self.driver.find_element(By.ID,self.textbox_username_id).send_keys(username)
+        self.driver.find_element(By.XPATH,self.textbox_username_xpath).clear()
+        self.driver.find_element(By.XPATH,self.textbox_username_xpath).send_keys(username)
 
 
     def setPassword(self,password):
-        self.driver.find_element(By.ID,self.textbox_password_id).clear()
-        self.driver.find_element(By.ID,self.textbox_password_id).send_keys(password)
+        self.driver.find_element(By.XPATH,self.textbox_password_xpath).clear()
+        self.driver.find_element(By.XPATH,self.textbox_password_xpath).send_keys(password)
 
 
     def clickLogin(self):
