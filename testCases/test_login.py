@@ -6,17 +6,17 @@ from utilities.customLogger import LogGen
 
 
 class Test_001_Login:
-     # baseURl = "https://opensource-demo.orangehrmlive.com/"
-     # username = "Admin"
-     # password = "admin123"
+    # baseURl = "https://opensource-demo.orangehrmlive.com/"
+    # username = "Admin"
+    # password = "admin123"
     # baseURl = "https://admin-demo.nopcommerce.com/"   # we are directly accessing url here.
-     baseURl = ReadConfig.getApplicationURl()        # here we are using config.ini file's data through utilities file
-     username = ReadConfig.getUserMail()
-     password = ReadConfig.getPassword()
+    baseURl = ReadConfig.getApplicationURl()  # here we are using config.ini file's data through utilities file
+    username = ReadConfig.getUserMail()
+    password = ReadConfig.getPassword()
 
-     logger = LogGen.loggen()
+    logger = LogGen.loggen()
 
-     def test_homePageTitle(self):
+    def test_homePageTitle(self):
         self.logger.info("**************Test_001_Login***************")
         self.logger.info("**************verifying Home page title***************")
         self.driver = webdriver.Chrome()
@@ -29,8 +29,7 @@ class Test_001_Login:
         else:
             assert False
 
-
-     def test_login(self):
+    def test_login(self):
         self.logger.info("*********verifying login test***********")
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
